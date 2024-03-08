@@ -32,7 +32,7 @@ for(let i = 0; i < arrayImg.length; i++){
 
 // RECUPERO OGNI ELEMENTO item FIGLI DI item-container
 const sliderItems = document.getElementsByClassName("item"); //HTMLColleciton
-//console.log(sliderItems);
+console.log(sliderItems);
 
 //AGGIUNGO LA CLASSE active ALL'ELEMENTO CHE SI VEDRA' DI DEFAULT
 let activeItemIndex = 0; // num
@@ -45,28 +45,40 @@ const prev = document.querySelector(".prev");
 // ASCOLTO IL CLICK DELL'UTENTE
 next.addEventListener("click", function(){
     console.log("next");
-
-    // TOLGO LA CLASSE "active" DALL'ELEMENTO CORRENTE
-    sliderItems[activeItemIndex].classList.remove("active");
+     // TOLGO LA CLASSE "active" DALL'ELEMENTO CORRENTE
+     sliderItems[activeItemIndex].classList.remove("active");
 
     //INCREMENTO activeItemIndex DI 1
     activeItemIndex++;
 
-    //AGGIUNGO LA CLASSE "active" AL NUOVO ELEMENTO
-    sliderItems[activeItemIndex].classList.add("active");
+    //SE L'INDICE è GUALE ALLA LUNGHEZZA DELLE IMMAGINI RI-AZZERO L'INDICE
+    if(activeItemIndex === arrayImg.length){
+        activeItemIndex = 0
+    }
+
+     //AGGIUNGO LA CLASSE "active" AL NUOVO ELEMENTO
+     sliderItems[activeItemIndex].classList.add("active");
 })
 
 prev.addEventListener("click", function(){
     console.log("prev");
+        // TOLGO LA CLASSE "active" DALL'ELEMENTO CORRENTE
+        sliderItems[activeItemIndex].classList.remove("active");
 
-    // TOLGO LA CLASSE "active" DALL'ELEMENTO CORRENTE
-    sliderItems[activeItemIndex].classList.remove("active");
+        //INCREMENTO activeItemIndex DI 1
+        activeItemIndex--;
 
-    //INCREMENTO activeItemIndex DA 1
-    activeItemIndex--;
+        if(activeItemIndex < 0){
+            activeItemIndex = 4
+        }
 
-    //AGGIUNGO LA CLASSE "active" AL NUOVO ELEMENTO
-    sliderItems[activeItemIndex].classList.add("active");
+        //AGGIUNGO LA CLASSE "active" AL NUOVO ELEMENTO
+        sliderItems[activeItemIndex].classList.add("active");
 })
+
+
+
+
+
 
 
