@@ -7,9 +7,12 @@
 }
 
 img{
-    max-width: 100%;
+    width: 800px;
+    height: 70vh;
+    object-fit: cover;
 }
 
+/* UTILITIES */
 .item{
     display: none;
 }
@@ -17,3 +20,47 @@ img{
 .active{
     display: block;
 }
+
+/* LAYOUT */
+
+.container{
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-container{
+    position: relative;
+}
+
+.prev,
+.next{
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(246, 246, 246, 0.493);
+    text-align: center;
+    line-height: 30px;
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.prev:hover,
+.next:hover{
+    background-color: white;
+}
+
+.prev{
+    top: 10px;
+}
+
+.next{
+    bottom: 10px;
+
+}
+

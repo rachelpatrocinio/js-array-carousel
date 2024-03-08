@@ -31,9 +31,42 @@ for(let i = 0; i < arrayImg.length; i++){
 }
 
 // RECUPERO OGNI ELEMENTO item FIGLI DI item-container
-const sliderItems = document.getElementsByClassName("item"); //HTMLCollection
-console.log(sliderItems);
+const sliderItems = document.getElementsByClassName("item"); //HTMLColleciton
+//console.log(sliderItems);
 
-// AGGIUNGO LA CLASSE active AL PRIMO sliderItem ALL'INTERNO DI sliderItems
-const activeItem = 0;
-sliderItems[activeItem].classList.add("active");
+//AGGIUNGO LA CLASSE active ALL'ELEMENTO CHE SI VEDRA' DI DEFAULT
+let activeItemIndex = 0; // num
+sliderItems[activeItemIndex].classList.add("active");
+
+// RECUPERO next E prev
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+
+// ASCOLTO IL CLICK DELL'UTENTE
+next.addEventListener("click", function(){
+    console.log("next");
+
+    // TOLGO LA CLASSE "active" DALL'ELEMENTO CORRENTE
+    sliderItems[activeItemIndex].classList.remove("active");
+
+    //INCREMENTO activeItemIndex DI 1
+    activeItemIndex++;
+
+    //AGGIUNGO LA CLASSE "active" AL NUOVO ELEMENTO
+    sliderItems[activeItemIndex].classList.add("active");
+})
+
+prev.addEventListener("click", function(){
+    console.log("prev");
+
+    // TOLGO LA CLASSE "active" DALL'ELEMENTO CORRENTE
+    sliderItems[activeItemIndex].classList.remove("active");
+
+    //INCREMENTO activeItemIndex DA 1
+    activeItemIndex--;
+
+    //AGGIUNGO LA CLASSE "active" AL NUOVO ELEMENTO
+    sliderItems[activeItemIndex].classList.add("active");
+})
+
+
