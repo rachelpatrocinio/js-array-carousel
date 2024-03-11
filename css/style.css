@@ -7,9 +7,7 @@
 }
 
 img{
-    width: 700px;
-    height: 70vh;
-    object-fit: cover;
+    max-width: 100%;
 }
 
 /* UTILITIES */
@@ -32,6 +30,12 @@ img{
     align-items: center;
 }
 
+.slider img{
+    aspect-ratio: 2/1;
+    height: 70vh;
+    object-fit: cover;
+}
+
 .item-container{
     position: relative;
 }
@@ -48,6 +52,7 @@ img{
     line-height: 30px;
     border-radius: 999px;
     cursor: pointer;
+    color: white;
 }
 
 .prev:hover,
